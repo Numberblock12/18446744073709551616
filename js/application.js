@@ -4,7 +4,7 @@ function getSize() {
   if (r != null) {
     return parseInt(unescape(decodeURI(r[2])));
   }
-  return 8; 
+  return 16; 
 }
 
 function getMode() { 
@@ -35,11 +35,26 @@ window.requestAnimationFrame(function () {
   case "alwaysTwo":
     alwaysTwo();
     break;
+  case "classic":
+    classic();
+    break;
+  case "threeTile":
+    threeTile();
+    break;
+  case "fourTile":
+    fourTile();
+    break;
   case "fibonacci":
     fibonacci();
     break;
+  case "lucas":
+    lucas();
+    break;
   case "threes":
     threes();
+    break;
+  case "base3":
+    base3();
     break;
   case "mergeAny":
     mergeAny();
@@ -55,6 +70,9 @@ window.requestAnimationFrame(function () {
     break;
   case "gravity":
     gravity();
+    break;
+  case "troll":
+    troll();
     break;
   default:
     normal();
@@ -235,9 +253,48 @@ function alwaysTwo() {
   changeRule(function() { return 1; }, normalMerge, normalWin);
 }
 
+function classic() {
+  changeRule(function() { return Math.random() < 0.9 ? 2 : 4; }, normalMerge, normalWin);
+}
+
+function threeTile() {
+  changeRule(function() { return Math.random() < 0.9 ? (Math.random() < 0.9 ? 1 : 2) : 4; }, normalMerge, normalWin);
+}
+
+function fourTile() {
+  changeRule(function() { return Math.random() < 0.75 ? (Math.random() < 0.75 ? 1 : 2) : (Math.random() < 0.75 ? 4 : 8) }, normalMerge, normalWin);
+}
+
+function base3() {
+  changeRule(function() { return Math.random() < 0.9 ? 3 : 6; }, normalMerge, normalWin);
+}
+
 function fibonacci() {
   var fib = new Array();
   var a = 1, b = 1;
+  fib.push(a);
+  fib.push(b);
+  while (a + b <= 2147483648) {
+    var c = a + b;
+    fib.push(c);
+    a = b;
+    b = c;
+  }
+  changeRule(function() { return 1; },
+    function(a, b) {
+      for (var i = 0; i < fib.length; ++i) {
+        if (a + b === fib[i]) {
+          return true;
+        }
+      }
+      return false;
+    }, 
+    function(merged) { return merged === 0.5; });
+}
+
+function lucas() {
+  var fib = new Array();
+  var a = 2, b = 1;
   fib.push(a);
   fib.push(b);
   while (a + b <= 2147483648) {
@@ -305,6 +362,20 @@ function gravity() {
   game.move = function(dir) {
     game.gravity(dir);
     game.gravity(2);
+  };
+  game.inputManager.events["move"] = [];
+  game.inputManager.on("move", game.move.bind(game));
+  game.restart();
+}
+
+function troll() {
+  changeRule(normalAdd, 
+    function(a, b) { return a === b; }, 
+    function(merged) { return merged === 0.5; });
+  game.gravity = game.move;
+  game.move = function(dir) {
+    game.gravity(dir);
+    game.gravity(Math.floor(Math.random() * 4));
   };
   game.inputManager.events["move"] = [];
   game.inputManager.on("move", game.move.bind(game));
