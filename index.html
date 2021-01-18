@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>2147483648</title>
+  <title>18446744073709551616</title>
 
-  <link href="style/tiles.css" rel="stylesheet" type="text/css">
+  <link href="style/tiles3.css" rel="stylesheet" type="text/css">
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
@@ -17,13 +17,13 @@
 <body>
   <div class="container">
     <div class="heading">
-      <h1 class="title">2147483648</h1>
+      <h1 class="title">18446744073709551616</h1>
       <div class="scores-container">
-        <div class="score-container" id="score-container">0</div>
+        <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
     </div>
-    <p class="game-intro" id="game-intro">Join the numbers and get to the <strong>2147483648 tile!</strong></p>
+    <p class="game-intro" id="game-intro">Join the numbers and get to the <strong>18446744073709551616 tile!</strong></p>
 
     <div class="game-container">
       <div class="game-message">
@@ -45,10 +45,12 @@
       Time rush: <br>
       <button name="time_rush" type="button" onclick="timeRush(60);">60s Time Rush</button>
       <button name="time_rush" type="button" onclick="timeRush(300);">300s Time Rush</button>
+      <button name="time_rush" type="button" onclick="timeRush(1200);">1200s Time Rush</button>
+      <button name="time_rush" type="button" onclick="timeRush(3600);">3600s Time Rush</button>
     </p>
     <hr>
     <p>
-      My GitHub: <a href="https://github.com/TheAstronomer/">TheAstronomer</a> <br>
+      My GitHub: <a href="https://github.com/Numberblock12/">Numberblock 12</a> <br>
       Creator's GitHub: <a href="https://github.com/CyberZHG/">CyberZHG</a> <br>
       Contributors to original 2147483648 site: <a href="https://github.com/jiangtyd/">jiangtyd</a>|
       <a href="https://github.com/allbinbin/">allbinbin</a>
@@ -74,14 +76,18 @@
       Special Mode: <br>
       <button type="button" onclick="changeMode('normal');">Normal</button>
       <button type="button" onclick="changeMode('alwaysTwo');">Always 1</button>
+      <button type="button" onclick="changeMode('threeTile');">1, 2, 4</button>
+      <button type="button" onclick="changeMode('fourTile');">1, 2, 4, 8</button>
       <button type="button" onclick="changeMode('fibonacci');">Fibonacci</button>
+      <button type="button" onclick="changeMode('lucas');">Lucas</button>
       <button type="button" onclick="changeMode('threes');">Threes!</button>
+      <button type="button" onclick="changeMode('base3');">Base 3</button>
       <button type="button" onclick="changeMode('mergeAny');">Merge Any</button>
       <button type="button" onclick="changeMode('powerTwo');">Power 2</button>
       <button type="button" onclick="changeMode('tileZero');">Tile 0</button>
       <button type="button" onclick="changeMode('tileNegative');">Negative</button>
       <button type="button" onclick="changeMode('gravity');">Gravity</button>
-      <button type="button" onclick="window.location.href='auto_flappy.html';">Auto Flappy</button>
+      <button type="button" onclick="changeMode('troll');">Troll</button>
     </p>
     <hr>
     <p>
@@ -107,31 +113,37 @@
     <p>
       Other 2048 variants made by me: <br>
       <button type="button" onclick="window.location.href='size2.html';">8</button>
-      <button type="button" onclick="window.location.href='size3.html';">256</button>
+      <button type="button" onclick="window.location.href='size3.html';">512</button>
       <button type="button" onclick="window.location.href='size4.html';">2048</button>
       <button type="button" onclick="window.location.href='size5.html';">65536</button>
       <button type="button" onclick="window.location.href='size6.html';">4194304</button>
       <button type="button" onclick="window.location.href='size8.html';">137438953472</button>
       <button type="button" onclick="window.location.href='size16.html';">18446744073709551616</button>
       <button type="button" onclick="window.location.href='2584.html';">Fibonacci</button>    
-      <button type="button" onclick="window.location.href='fibonacci-3x3.html';">233</button>
+      <button type="button" onclick="window.location.href='fibonacci-3x3.html';">377</button>
       <button type="button" onclick="window.location.href='fibonacci.html';">2584</button>
       <button type="button" onclick="window.location.href='fibonacci-5x5.html';">75025</button>
       <button type="button" onclick="window.location.href='fibonacci-6x6.html';">5702887</button>
       <button type="button" onclick="window.location.href='fibonacci-8x8.html';">139583862445</button>
-      <button type="button" onclick="window.location.href='fibonacci-16x16.html';">8944394323791464</button>
-      <button type="button" onclick="window.location.href='threes-3x3.html';">384</button>
+      <button type="button" onclick="window.location.href='fibonacci-16x16.html';">19740274219868223167</button>
+      <button type="button" onclick="window.location.href='lucas-3x3.html';">521</button>
+      <button type="button" onclick="window.location.href='lucas.html';">2207</button>
+      <button type="button" onclick="window.location.href='lucas-5x5.html';">64079</button>
+      <button type="button" onclick="window.location.href='lucas-6x6.html';">4870847</button>
+      <button type="button" onclick="window.location.href='lucas-8x8.html';">119218851371</button>
+      <button type="button" onclick="window.location.href='lucas-16x16.html';">16860207025497407047</button>
+      <button type="button" onclick="window.location.href='threes-3x3.html';">768</button>
       <button type="button" onclick="window.location.href='threes.html';">3072</button>
       <button type="button" onclick="window.location.href='threes-5x5.html';">98304</button>
       <button type="button" onclick="window.location.href='threes-6x6.html';">6291456</button>
-      <button type="button" onclick="window.location.href='threes-8x8.html';">402653184</button>
-      <button type="button" onclick="window.location.href='threes-16x16.html';">1610612736</button>
+      <button type="button" onclick="window.location.href='threes-8x8.html';">103079215104</button>
+      <button type="button" onclick="window.location.href='threes-16x16.html';">13835058055282164000</button>
       <button type="button" onclick="window.location.href='power3-3x3.html';">243</button>
       <button type="button" onclick="window.location.href='power3.html';">2187</button>
       <button type="button" onclick="window.location.href='power3-5x5.html';">59049</button>
       <button type="button" onclick="window.location.href='power3-6x6.html';">4782969</button>
       <button type="button" onclick="window.location.href='power3-8x8.html';">282429536481</button>
-      <button type="button" onclick="window.location.href='power3-16x16.html';">5559060566555523</button>
+      <button type="button" onclick="window.location.href='power3-16x16.html';">109418989131512350000</button>
       <button type="button" onclick="window.location.href='negative-3x3.html';">-256</button>
       <button type="button" onclick="window.location.href='negative.html';">-2048</button>
       <button type="button" onclick="window.location.href='negative-5x5.html';">-65536</button>
@@ -143,7 +155,7 @@
       <button type="button" onclick="window.location.href='diagonal-5x5.html';">Diagonal 5×5</button>
       <button type="button" onclick="window.location.href='diagonal-6x6.html';">Diagonal 6×6</button>
       <button type="button" onclick="window.location.href='diagonal-8x8.html';">Diagonal 8×8</button>      
-      <button type="button" onclick="window.location.href='to-n-3x3.html';">To 256</button>
+      <button type="button" onclick="window.location.href='to-n-3x3.html';">To 512</button>
       <button type="button" onclick="window.location.href='to-n.html';">To 2048</button>
       <button type="button" onclick="window.location.href='to-n-5x5.html';">To 65536</button>
       <button type="button" onclick="window.location.href='to-n-6x6.html';">To 4194304</button>
@@ -163,7 +175,7 @@
       <button type="button" onclick="window.location.href='zen-5x5.html';">Zen 5×5</button>
       <button type="button" onclick="window.location.href='zen-6x6.html';">Zen 6×6</button>
       <button type="button" onclick="window.location.href='zen-6x6.html';">Zen 8×8</button>
-      <button type="button" onclick="window.location.href='dontmake256.html';">Don't make 256</button>
+      <button type="button" onclick="window.location.href='dontmake256.html';">Don't make 512</button>
       <button type="button" onclick="window.location.href='dontmake2048.html';">Don't make 2048</button>
       <button type="button" onclick="window.location.href='dontmake65536.html';">Don't make 65536</button>
       <button type="button" onclick="window.location.href='dontmake4194304.html';">Don't make 4194304</button>
@@ -184,7 +196,16 @@
       <button type="button" onclick="window.location.href='mode_negative.html';">Zero Sum 2048</button>
       <button type="button" onclick="window.location.href='delirium.html';">2K48</button>      
       <button type="button" onclick="window.location.href='dive.html';">DIVE</button>
-      <button type="button" onclick="window.location.href='animated2048.html';">Animated 2048</button>   
+      <button type="button" onclick="window.location.href='animated2048.html';">Animated 2048</button>
+      <button type="button" onclick="window.location.href='animated2584.html';">Animated 2584</button>
+      <button type="button" onclick="window.location.href='animated2207.html';">Animated 2207</button>
+      <button type="button" onclick="window.location.href='animated3072.html';">Animated 3072</button>
+      <button type="button" onclick="window.location.href='animated2187.html';">Animated 2187</button>
+      <button type="button" onclick="window.location.href='animated-neg.html';">Animated -2048</button>
+      <button type="button" onclick="window.location.href='animated-one.html';">Animated 1</button>
+      <button type="button" onclick="window.location.href='animated-dia.html';">Animated Diagonal 2048</button>
+      <button type="button" onclick="window.location.href='animated-inv.html';">Animated Don't make 2048</button>
+      <button type="button" onclick="window.location.href='animated-fin.html';">Animated Finals 2048</button>
     </p>
     <hr>
       Skin: <br>
@@ -204,6 +225,7 @@
       2048 with Auto Move: <br>
       <button type="button" onclick="window.location.href='9007199254740992.html';">9007199254740992</button>
       <button type="button" onclick="window.location.href='8944394323791464.html';">8944394323791464</button>
+     <button type="button" onclick="window.location.href='7639424778862807.html';">7639424778862807</button>
       <button type="button" onclick="window.location.href='5559060566555523.html';">5559060566555523</button>
       <button type="button" onclick="window.location.href='±9007199254740992.html';">±9007199254740992</button>
       <button type="button" onclick="window.location.href='1610612736.html';">1610612736</button>
