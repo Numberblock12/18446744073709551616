@@ -1,6 +1,6 @@
 function Grid(size, previousState) {
-  this.size = size;
-  this.sizeY = size + 1;
+  this.size = size + 1;
+  this.sizeY = size;
   this.cells = previousState ? this.fromState(previousState) : this.empty();
 }
 
