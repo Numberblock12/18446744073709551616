@@ -210,7 +210,7 @@ GameManager.prototype.buildTraversals = function (vector) {
 
   for (var pos = 0; pos < this.size; pos++) {
     traversals.x.push(pos);
-    if(pos < this.size +1 )
+    if(pos <= this.size )
       traversals.y.push(pos);
   }
 
