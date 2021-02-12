@@ -1338,7 +1338,7 @@ hr {
     color: #f9f6f2;
     background: #000000;
     box-shadow: 0 0 30px 10px #f3d774, inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
-    font-size: 7px; }
+    font-size: 6px; }
     @media screen and (max-width: 520px) {
       .tile.tile-super19 .tile-inner {
         font-size: 4px; } }
