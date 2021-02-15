@@ -28,7 +28,11 @@ GameManager.prototype.keepPlaying = function () {
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
-  return this.over || (this.won && !this.keepPlaying);
+  if (this.over || (this.won && !this.keepPlaying)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // Set up the game
@@ -68,7 +72,6 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-	  
     var value = Math.random() < 0.9 ? 2 : 4;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
@@ -208,11 +211,8 @@ GameManager.prototype.getVector = function (direction) {
 GameManager.prototype.buildTraversals = function (vector) {
   var traversals = { x: [], y: [] };
 
-  for (var pos = 0; pos < this.size; pos++) {
-    traversals.x.push(pos);
-    if(pos <= this.size )
-      traversals.y.push(pos);
-  }
+  for (var posx = 0; posx < this.size.x; posx++) traversals.x.push(posx);
+  for (var posy = 0; posy < this.size.y; posy++) traversals.y.push(posy);
 
   // Always traverse from the farthest cell in the chosen direction
   if (vector.x === 1) traversals.x = traversals.x.reverse();
