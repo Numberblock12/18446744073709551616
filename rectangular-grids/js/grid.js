@@ -102,10 +102,10 @@ Grid.prototype.withinBounds = function (position) {
 Grid.prototype.serialize = function () {
   var cellState = [];
 
-  for (var x = 0; x < this.size.y; x++) {
+  for (var x = 0; x < this.size.x; x++) {
     var row = cellState[x] = [];
 
-    for (var y = 0; y < this.size.x; y++) {
+    for (var y = 0; y < this.size.y; y++) {
       row.push(this.cells[x][y] ? this.cells[x][y].serialize() : null);
     }
   }
