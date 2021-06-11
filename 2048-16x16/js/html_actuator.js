@@ -55,14 +55,66 @@ HTMLActuator.prototype.addTile = function (tile) {
   var positionClass = this.positionClass(position);
 
   // We can't use classlist because it somehow glitches when replacing classes
-  var classes = ["tile", "tile-" + tile.value, positionClass];
+  if (tile.value >= Math.pow(10, 11)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 9)) + "B", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 12)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 12)) + "T", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 15)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 15)) + "q", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 18)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 18)) + "Q", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 21)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 21)) + "s", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 24)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 24)) + "S", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 27)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 27)) + "O", positionClass];
+  }
+  if (tile.value >= Math.pow(10, 30)) {
+    var classes = ["tile", "tile-" + Math.floor(tile.value / Math.pow(10, 30)) + "N", positionClass];
+  }
+  if (tile.value < Math.pow(10, 11)) {
+    var classes = ["tile", "tile-" + tile.value, positionClass];
+  }
 
-  if (tile.value > 9007199254740992) classes.push("tile-super");
+  if (tile.value > Math.pow(2, 100)) classes.push("tile-1N");
 
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  if (tile.value >= Math.pow(10, 11)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 9)) + "B";
+  }
+  if (tile.value >= Math.pow(10, 12)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 12)) + "T";
+  }
+  if (tile.value >= Math.pow(10, 15)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 15)) + "q";
+  }
+  if (tile.value >= Math.pow(10, 18)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 18)) + "Q";
+  }
+  if (tile.value >= Math.pow(10, 21)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 21)) + "s";
+  }
+  if (tile.value >= Math.pow(10, 24)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 24)) + "S";
+  }
+  if (tile.value >= Math.pow(10, 27)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 27)) + "O";
+  }
+  if (tile.value >= Math.pow(10, 30)) {
+    inner.textContent = Math.floor(tile.value / Math.pow(10, 30)) + "N";
+  }
+  if (tile.value < Math.pow(10, 11)) {
+    inner.textContent = tile.value;
+  }
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
