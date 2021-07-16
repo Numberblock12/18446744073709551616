@@ -1314,12 +1314,12 @@ hr {
     @media screen and (max-width: 480px) {
       .tile.tile-8 .tile-inner, .tile.tile-5 .tile-inner, .tile.tile-6 .tile-inner  {
         font-size: 20px; } }
-  .tile.tile-16 .tile-inner, .tile.tile-8 .tile-inner, .tile.tile-12 .tile-inner  {
+  .tile.tile-16 .tile-inner, .tile.tile-12 .tile-inner  {
     font-size: 26px; 
     color: #f9f6f2;
     background: #f59563; }
     @media screen and (max-width: 480px) {
-      .tile.tile-16 .tile-inner, .tile.tile-8 .tile-inner, .tile.tile-12 .tile-inner  {
+      .tile.tile-16 .tile-inner, .tile.tile-12 .tile-inner  {
         font-size: 19px; } }
   .tile.tile-32 .tile-inner, .tile.tile-13 .tile-inner, .tile.tile-24 .tile-inner  {
     font-size: 26px; 
